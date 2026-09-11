@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JR Autocheck | Mobiele automonteur</title>
+<meta name="description" content="JR Autocheck: zelfstandig mobiele automonteur voor particulieren en bedrijven. Diagnose, onderhoud, reparatie en APK. Samen sterk in autowerk!">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -20 444 477'%3E%3Cpolygon fill='%234fac68' points='0,221 62,221 116,320 384,0 384,110 114,437'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000000;
+    --blue-deep:#0056a4;
+    --blue-mid:#0075ba;
+    --blue-bright:#1496cf;
+    --green-dark:#3c7233;
+    --green:#4fac68;
+    --white:#ffffff;
+    --ice:#eaf3fa;
+    --on-dark-soft:#b9c6d2;
+    --line-light:#cfdeea;
+    --line-dark:#23313d;
+    --wrap:1200px;
+    --gutter:clamp(20px,4vw,40px);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:20px}
+  body{margin:0;font-family:Roboto,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  p{margin:0 0 1em}
+  h1,h2,h3{margin:0;font-weight:900;line-height:1.02}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+  :focus-visible{outline:3px solid var(--blue-bright);outline-offset:3px;border-radius:4px}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;font:700 16px/1 Roboto,system-ui,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn--bright{background:var(--blue-bright);color:var(--black)}
+  .btn--bright:hover{background:var(--white)}
+  .btn--ghost{border-color:rgba(255,255,255,.55);color:var(--white)}
+  .btn--ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+  .btn--deep{background:var(--blue-deep);color:var(--white)}
+  .btn--deep:hover{background:var(--black)}
+  .btn--black{background:var(--black);color:var(--white)}
+  .btn--black:hover{background:var(--white);color:var(--blue-deep)}
+
+  /* ---------- Nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:var(--black);border-bottom:1px solid var(--line-dark)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav__brand img{height:46px;width:auto}
+  .nav__links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0}
+  .nav__links a{color:var(--white);text-decoration:none;font-weight:500;font-size:16px}
+  .nav__links a:not(.btn):hover{color:var(--blue-bright)}
+  .nav__links .btn{min-height:42px;padding:0 20px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:var(--black);color:var(--white);overflow:hidden;padding:clamp(56px,9vw,112px) 0 calc(max(760px,106vw) * .2 + 44px)}
+  .hero__grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,5.4rem);text-transform:uppercase;letter-spacing:-.015em;line-height:.94}
+  .hero__slogan{margin:28px 0 0;width:min(420px,90%);height:auto}
+  .hero__lead{margin:28px 0 36px;max-width:34em;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--on-dark-soft)}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:14px}
+  .hero__creds{display:flex;flex-wrap:wrap;gap:12px 28px;margin:40px 0 0;padding:0;list-style:none;font-weight:500;font-size:15px}
+  .hero__creds li{display:flex;align-items:center;gap:10px}
+  .hero__creds svg{width:16px;height:18px}
+  .hero__logo{justify-self:end;width:100%;max-width:500px;height:auto;filter:drop-shadow(0 30px 60px rgba(20,150,207,.18))}
+  .swoosh{position:absolute;z-index:1;left:50%;bottom:-2px;width:max(760px,106vw);max-width:none;transform:translateX(-50%);fill:none;stroke:url(#swooshGrad);stroke-linecap:round}
+  .swoosh path{stroke-dasharray:1 2;stroke-dashoffset:0}
+  @media (prefers-reduced-motion:no-preference){
+    .swoosh path{animation:draw 1.3s cubic-bezier(.2,.7,.2,1) both}
+    .swoosh path:nth-child(2){animation-delay:.12s}
+    .swoosh path:nth-child(3){animation-delay:.22s}
+    .swoosh path:nth-child(4){animation-delay:.34s}
+    .swoosh path:nth-child(5){animation-delay:.42s}
+    @keyframes draw{0%{stroke-dashoffset:1;opacity:0}8%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+  }
+
+  /* ---------- Section base ---------- */
+  .section{padding:clamp(72px,10vw,128px) 0}
+  .section__title{font-size:clamp(2.1rem,4.4vw,3.4rem);text-transform:uppercase;letter-spacing:-.01em;color:var(--blue-deep)}
+  .section__intro{max-width:36em;margin:18px 0 0;font-size:1.1rem}
+
+  /* ---------- Services ---------- */
+  .services__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:28px;margin-bottom:48px}
+  .tabs{display:inline-flex;padding:5px;border-radius:999px;background:var(--ice);border:1px solid var(--line-light)}
+  .tab{appearance:none;border:0;background:transparent;border-radius:999px;padding:12px 26px;font:700 16px/1 Roboto,system-ui,sans-serif;color:var(--blue-deep);cursor:pointer;transition:background-color .2s,color .2s}
+  .tab[aria-selected="true"]{background:var(--blue-deep);color:var(--white)}
+  .tab:not([aria-selected="true"]):hover{background:var(--white)}
+
+  .panel{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,4vw,56px);align-items:start}
+  .panel[hidden]{display:none}
+  .feature{position:relative;overflow:hidden;background:var(--black);color:var(--white);border-radius:24px;padding:clamp(28px,3.4vw,44px);min-height:100%;display:flex;flex-direction:column}
+  .feature::after{content:"";position:absolute;right:-60px;bottom:-40px;width:260px;height:300px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 437'%3E%3Cpolygon fill='%234fac68' points='0,221 62,221 116,320 384,0 384,110 114,437'/%3E%3C/svg%3E") no-repeat center/contain;opacity:.09;pointer-events:none}
+  .feature__icon{width:56px;height:56px;color:var(--blue-bright);margin-bottom:28px}
+  .feature h3{font-size:clamp(1.7rem,2.6vw,2.2rem);text-transform:uppercase;margin-bottom:16px}
+  .feature__q{font-size:1.2rem;font-weight:500;color:var(--white);margin-bottom:12px}
+  .feature p{color:var(--on-dark-soft)}
+  .feature .btn{margin-top:auto;align-self:flex-start;position:relative;z-index:1}
+  .feature p:last-of-type{margin-bottom:32px}
+
+  .service-list{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,3vw,48px)}
+  .service-list--single{grid-template-columns:1fr}
+  .service-list--single .service{padding-top:40px}
+  .service-list--single .service h3{font-size:1.8rem;text-transform:uppercase}
+  .service-list--single .service p{font-size:1.15rem;max-width:30em}
+  .service-list--single .service__icon{width:48px;height:48px}
+  .service{padding:28px 0 32px;border-top:2px solid var(--line-light)}
+  .service__icon{width:36px;height:36px;color:var(--blue-bright);margin-bottom:16px}
+  .service h3{font-size:1.35rem;color:var(--blue-deep);margin-bottom:10px}
+  .service p{margin:0;font-size:16px}
+  .service__note{display:block;margin-top:12px;font-size:14px;font-weight:500;color:var(--blue-mid)}
+
+  /* ---------- About ---------- */
+  .about{background:var(--ice)}
+  .about__grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,6vw,96px);align-items:start}
+  .about__lead{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.35;font-weight:500;color:var(--blue-deep);margin:28px 0 28px;max-width:26em}
+  .about__body p{max-width:38em}
+  .portrait{position:relative;margin:0;border-radius:24px;overflow:hidden;background:#e9e8ee;aspect-ratio:4/5}
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .portrait::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--blue-deep),var(--blue-bright));z-index:1}
+  .portrait figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 28px 24px;color:var(--white);background:linear-gradient(transparent,rgba(0,0,0,.35) 40%,rgba(0,0,0,.6))}
+  .portrait figcaption strong{display:block;font-weight:900;font-size:1.35rem;line-height:1.15}
+  .portrait figcaption span{display:block;font-size:15px;color:var(--on-dark-soft);margin-top:2px}
+  .journey{background:var(--white);border-radius:24px;padding:clamp(28px,3vw,40px);border:1px solid var(--line-light)}
+  .journey h3{font-size:1.35rem;text-transform:uppercase;color:var(--blue-deep);margin-bottom:28px}
+  .journey ol{list-style:none;margin:0;padding:0;position:relative}
+  .journey ol::before{content:"";position:absolute;left:9px;top:10px;bottom:34px;width:2px;background:linear-gradient(var(--blue-bright),var(--blue-deep))}
+  .journey li{position:relative;padding:0 0 24px 40px;font-weight:500;line-height:1.4}
+  .journey li:last-child{padding-bottom:0}
+  .journey li::before{content:"";position:absolute;left:3px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--white);border:3px solid var(--blue-bright)}
+  .journey li.is-now{font-weight:900;color:var(--blue-deep)}
+  .journey li.is-now::before{left:-2px;top:-2px;width:24px;height:26px;border:0;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-40 -30 464 497'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%233c7233'/%3E%3Cstop offset='.45' stop-color='%234fac68'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon fill='url(%23g)' points='0,221 62,221 116,320 384,0 384,110 114,437'/%3E%3C/svg%3E") no-repeat center/contain;background-color:var(--white)}
+  .journey small{display:block;font-weight:400;color:#35516b;font-size:14px;margin-top:2px}
+
+  .journey{grid-column:1/-1}
+  @media (min-width:961px){
+    .about__grid{row-gap:56px}
+    .journey ol{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+    .journey li{overflow-wrap:break-word}
+    .journey ol::before{left:8px;top:9px;bottom:auto;right:calc((100% - 96px) / 5 - 12px);width:auto;height:2px;background:linear-gradient(90deg,var(--blue-bright),var(--blue-deep))}
+    .journey li,.journey li:last-child{padding:36px 4px 0 0}
+    .journey li::before{left:1px;top:2px}
+    .journey li.is-now::before{left:-3px;top:-4px}
+  }
+
+  /* ---------- Values ---------- */
+  .values{background:var(--black);color:var(--white)}
+  .values .section__title{color:var(--white)}
+  .values .section__intro{color:var(--on-dark-soft)}
+  .values__grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:1px solid var(--line-dark)}
+  .value{padding:40px clamp(20px,3vw,40px) 8px 0}
+  .value + .value{padding-left:clamp(20px,3vw,40px);border-left:1px solid var(--line-dark)}
+  .value__check{width:44px;height:50px;margin-bottom:24px}
+  .value h3{font-size:1.7rem;text-transform:uppercase;margin-bottom:16px}
+  .value p{color:var(--on-dark-soft);font-size:16px}
+
+  /* ---------- Contact ---------- */
+  .contact{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--blue-deep) 0%,var(--blue-mid) 55%,var(--blue-bright) 100%);color:var(--white)}
+  .contact .swoosh{stroke:rgba(255,255,255,.12);bottom:auto;top:-40px;transform:translateX(-50%) scaleY(-1);width:max(1100px,100vw)}
+  .contact .swoosh path{animation:none;stroke-dasharray:none}
+  .contact__inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  .contact h2{font-size:clamp(2rem,4.4vw,3.4rem);text-transform:uppercase;letter-spacing:-.01em;max-width:14em}
+  .contact p{font-size:1.15rem;max-width:30em;margin:22px 0 0}
+  .contact__actions{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+  .contact__actions .btn{justify-content:flex-start;min-height:60px;padding:0 26px;font-size:17px}
+  /* ---------- Contact details ---------- */
+  .contact__actions .btn{min-height:72px;gap:16px}
+  .contact__actions .btn svg{width:22px;height:22px;color:var(--blue-bright);transition:color .2s}
+  .contact__actions .btn:hover svg{color:var(--blue-deep)}
+  .btn__stack{display:flex;flex-direction:column;gap:5px;line-height:1.1;min-width:0}
+  .btn__stack small{font-size:13px;font-weight:500;color:var(--on-dark-soft);transition:color .2s}
+  .btn__stack span{overflow-wrap:anywhere}
+  .contact__actions .btn:hover small{color:var(--blue-mid)}
+
+
+  /* ---------- Footer ---------- */
+  .footer{background:var(--black);color:var(--on-dark-soft);padding:56px 0 40px;font-size:15px}
+  .footer__top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding-bottom:36px;border-bottom:1px solid var(--line-dark)}
+  .footer__brand{display:flex;flex-wrap:wrap;align-items:center;gap:28px}
+  .footer__brand img:first-child{height:64px;width:auto}
+  .footer__brand img:last-child{width:260px;height:auto}
+  .footer nav ul{display:flex;flex-wrap:wrap;gap:24px;list-style:none;margin:0;padding:0}
+  .footer nav a{text-decoration:none;color:var(--white);font-weight:500}
+  .footer nav a:hover{color:var(--blue-bright)}
+  .footer__bottom{padding-top:24px}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:960px){
+    .hero__grid{grid-template-columns:1fr}
+    .hero__logo{order:-1;justify-self:start;max-width:300px}
+    .panel,.about__grid,.contact__inner{grid-template-columns:1fr}
+    .portrait{max-width:460px}
+    .values__grid{grid-template-columns:1fr}
+    .value,.value + .value{padding:36px 0 12px;border-left:0}
+    .value + .value{border-top:1px solid var(--line-dark)}
+  }
+  @media (max-width:720px){
+    .nav__links li:not(:last-child){display:none}
+    .service-list{grid-template-columns:1fr}
+    .services__head{align-items:start}
+    .tab{padding:12px 20px}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="swooshGrad" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0056a4"/>
+      <stop offset=".55" stop-color="#0075ba"/>
+      <stop offset="1" stop-color="#1496cf"/>
+    </linearGradient>
+    <linearGradient id="checkGrad" x1="0" y1="0" x2="384" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3c7233"/>
+      <stop offset=".45" stop-color="#4fac68"/>
+    </linearGradient>
+    <symbol id="check" viewBox="0 0 384 437"><polygon fill="url(#checkGrad)" points="0,221 62,221 116,320 384,0 384,110 114,437"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav__brand" href="#top" aria-label="JR Autocheck, naar boven"><img src="Images/logo-header.png" alt="JR Autocheck" width="75" height="46"></a>
+    <ul class="nav__links">
+      <li><a href="#diensten">Diensten</a></li>
+      <li><a href="#over-mij">Over mij</a></li>
+      <li><a href="#kernwaarden">Kernwaarden</a></li>
+      <li><a class="btn btn--bright" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <h1>De garage komt naar je toe.</h1>
+        <img class="hero__slogan" src="Images/slogan.png" alt="Samen sterk in autowerk!" width="420" height="34">
+        <p class="hero__lead">Ik ben Jonathan, zelfstandig mobiele automonteur. Voor diagnose, onderhoud en reparatie kom ik naar je toe, zodat je geen tijd kwijt bent aan een bezoek aan de garage.</p>
+        <div class="hero__actions">
+          <a class="btn btn--bright" href="#contact">Neem contact op</a>
+          <a class="btn btn--ghost" href="#diensten">Bekijk mijn diensten</a>
+        </div>
+        <ul class="hero__creds">
+          <li><svg aria-hidden="true"><use href="#check"/></svg>Gediplomeerd autotechnicus</li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg>Mechatronicamonteur</li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg>Particulieren en bedrijven</li>
+        </ul>
+      </div>
+      <img class="hero__logo" src="Images/logo-hero.png" alt="Logo JR Autocheck" width="500" height="353">
+    </div>
+
+    <svg class="swoosh" viewBox="0 0 1440 380" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+      <path d="M170 158.8 A2600 2600 0 0 1 430 116.2" stroke-width="40" pathLength="1"/>
+      <path d="M510 108.5 A2600 2600 0 0 1 1250 154.6" stroke-width="26" pathLength="1"/>
+      <path d="M110 244.6 A2530 2530 0 0 1 1080 195.7" stroke-width="38" pathLength="1"/>
+      <path d="M1160 208.6 A2530 2530 0 0 1 1330 244.6" stroke-width="38" pathLength="1"/>
+      <path d="M60 330.2 A2460 2460 0 0 1 1390 333.0" stroke-width="46" pathLength="1"/>
+    </svg>
+  </section>
+
+  <!-- DIENSTEN -->
+  <section class="section services" id="diensten" aria-labelledby="diensten-title">
+    <div class="wrap">
+      <div class="services__head">
+        <div>
+          <h2 class="section__title" id="diensten-title">Mijn diensten</h2>
+          <p class="section__intro">Voor particulieren aan huis en voor bedrijven als extra kracht in de werkplaats.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Kies voor wie">
+          <button class="tab" role="tab" id="tab-part" aria-controls="panel-part" aria-selected="true">Particulieren</button>
+          <button class="tab" role="tab" id="tab-bedr" aria-controls="panel-bedr" aria-selected="false" tabindex="-1">Bedrijven</button>
+        </div>
+      </div>
+
+      <!-- Particulieren -->
+      <div class="panel" id="panel-part" role="tabpanel" aria-labelledby="tab-part">
+        <article class="feature">
+          <svg class="feature__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 20v10M6 25h4M10 17v16h5l4 5h14l4-5h3v4h4V17h-4v4h-3l-4-5h-4v-4h-8v4h-6l-4 4z"/>
+          </svg>
+          <h3>Diagnose</h3>
+          <p class="feature__q">Brandt er een waarschuwingslampje?</p>
+          <p>Neem direct contact met mij op. Ik voer een nauwkeurige diagnose uit en verhelp eventuele storingen, zodat je weer veilig de weg op kunt.</p>
+          <a class="btn btn--bright" href="#contact">Neem direct contact op</a>
+        </article>
+
+        <div class="service-list">
+          <article class="service">
+            <svg class="service__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+              <path d="M22.5 6.5a7 7 0 0 0-8.8 8.8L5 24a3.5 3.5 0 0 0 5 5l8.7-8.7a7 7 0 0 0 8.8-8.8l-4.3 4.3-4-1-1-4z"/>
+            </svg>
+            <h3>Onderhoud &amp; reparatie</h3>
+            <p>Is het tijd voor een onderhoudsbeurt of heeft je auto last van slijtage of een defect? Als gediplomeerd autotechnicus zorg ik ervoor dat jouw auto weer veilig en in topconditie de weg op kan.</p>
+          </article>
+
+          <article class="service">
+            <svg class="service__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="13" r="4.5"/>
+              <path d="M11 3.5v2M11 20.5v2M1.5 13h2M3.8 5.8l1.4 1.4M3.8 20.2l1.4-1.4M18.2 5.8l-1.4 1.4"/>
+              <path d="M26 16v17M19.5 20l13 9M32.5 20l-13 9M23 17l3 2.5 3-2.5M23 32l3-2.5 3 2.5"/>
+            </svg>
+            <h3>Zomer- en wintercheck</h3>
+            <p>Een controle van onder andere de airco, banden en vloeistoffen en meer, zodat jouw auto klaar is voor elk seizoen.</p>
+          </article>
+
+          <article class="service">
+            <svg class="service__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+              <path d="M14 4c1 6 3 8 9 9-6 1-8 3-9 9-1-6-3-8-9-9 6-1 8-3 9-9z"/>
+              <path d="M27 20c.6 3.4 1.6 4.4 5 5-3.4.6-4.4 1.6-5 5-.6-3.4-1.6-4.4-5-5 3.4-.6 4.4-1.6 5-5z"/>
+            </svg>
+            <h3>Interieur &amp; exterieur</h3>
+            <p>Wil jij je auto een opfrisbeurt geven? Van het polijsten van koplampen tot het wrappen van sier- en raamlijsten en het inbouwen van geluidsystemen: ik zorg voor een verzorgde uitstraling en optimaal geluid in je auto.</p>
+          </article>
+
+          <article class="service">
+            <svg class="service__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 6H8v27h20V6h-4"/>
+              <rect x="12" y="3" width="12" height="6" rx="1.5"/>
+              <path d="M12.5 21l4 4 7-8"/>
+            </svg>
+            <h3>APK-keuring</h3>
+            <p>Is het tijd voor de APK? De keuring wordt uitgevoerd door mijn vaste compagnon, zodat je kunt rekenen op een professionele en betrouwbare afhandeling. Eventuele reparatiewerkzaamheden kunnen daarna in overleg worden uitgevoerd.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Bedrijven -->
+      <div class="panel" id="panel-bedr" role="tabpanel" aria-labelledby="tab-bedr" hidden>
+        <article class="feature">
+          <svg class="feature__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+            <path d="M22.5 6.5a7 7 0 0 0-8.8 8.8L5 24a3.5 3.5 0 0 0 5 5l8.7-8.7a7 7 0 0 0 8.8-8.8l-4.3 4.3-4-1-1-4z"/>
+          </svg>
+          <h3>Onderhoud &amp; reparatie</h3>
+          <p class="feature__q">Extra capaciteit nodig in de werkplaats?</p>
+          <p>Als gediplomeerd autotechnicus ben ik inzetbaar voor uiteenlopende onderhouds- en reparatiewerkzaamheden. Ik versterk graag jouw team.</p>
+          <a class="btn btn--bright" href="#contact">Bespreek de mogelijkheden</a>
+        </article>
+
+        <div class="service-list service-list--single">
+          <article class="service">
+            <svg class="service__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+              <path d="M6 20v10M6 25h4M10 17v16h5l4 5h14l4-5h3v4h4V17h-4v4h-3l-4-5h-4v-4h-8v4h-6l-4 4z"/>
+            </svg>
+            <h3>Diagnose</h3>
+            <p>Ook ben ik gecertificeerd om diagnoses uit te voeren. Dit doe ik nauwkeurig, zodat eventuele reparaties efficiënt kunnen worden uitgevoerd.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVER MIJ -->
+  <section class="section about" id="over-mij" aria-labelledby="over-title">
+    <div class="wrap about__grid">
+      <div>
+        <h2 class="section__title" id="over-title">Over mij</h2>
+        <p class="about__lead">Hallo, ik ben Jonathan Ravenhorst, eigenaar van JR&nbsp;Autocheck en zelfstandig mobiele automonteur.</p>
+        <div class="about__body">
+          <p>Al van jongs af aan heb ik een passie voor auto's. Die interesse groeide uit tot een passie voor techniek, waarna ik besloot van mijn hobby mijn beroep te maken.</p>
+          <p>Na het sleutelen aan scooters en auto’s volgde ik de opleiding tot autotechnicus. Inmiddels ben ik gediplomeerd autotechnicus en mechatronicamonteur. Dankzij deze brede technische kennis kan ik uiteenlopende onderhouds-, reparatie- en diagnosewerkzaamheden uitvoeren.</p>
+          <p>Met JR Autocheck combineer ik mijn technische kennis met mijn ondernemersdroom. Als mobiele automonteur kom ik naar je toe, zodat je niet onnodig tijd kwijt bent aan een bezoek aan de garage. Ik werk op een professionele en nuchtere manier, waarbij kwaliteit, betrouwbaarheid en veiligheid altijd voorop staan. Je kunt rekenen op vakmanschap, duidelijke communicatie en een eerlijke prijs.</p>
+        </div>
+      </div>
+
+      <figure class="portrait">
+          <img src="Images/IMG_5086.jpg" alt="Jonathan Ravenhorst, eigenaar van JR Autocheck" width="880" height="1100">
+          <figcaption><strong>Jonathan Ravenhorst</strong><span>Eigenaar JR Autocheck</span></figcaption>
+      </figure>
+      <aside class="journey" aria-labelledby="journey-title">
+        <h3 id="journey-title">Van hobby naar beroep</h3>
+        <ol>
+          <li>Passie voor auto's<small>Al van jongs af aan</small></li>
+          <li>Sleutelen aan scooters en auto's</li>
+          <li>Opleiding tot autotechnicus</li>
+          <li>Gediplomeerd autotechnicus en mechatronica&shy;monteur</li>
+          <li class="is-now">JR Autocheck<small>Zelfstandig mobiele automonteur</small></li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- KERNWAARDEN -->
+  <section class="section values" id="kernwaarden" aria-labelledby="waarden-title">
+    <div class="wrap">
+      <h2 class="section__title" id="waarden-title">Kernwaarden</h2>
+      <p class="section__intro">Vakmanschap, duidelijke communicatie en een eerlijke prijs. Zo werk ik.</p>
+
+      <div class="values__grid">
+        <article class="value">
+          <svg class="value__check" aria-hidden="true"><use href="#check"/></svg>
+          <h3>Kwaliteit</h3>
+          <p>Ik vind het belangrijk dat werkzaamheden goed en netjes worden uitgevoerd. Ik ga niet voor de snelste of goedkoopste oplossing, maar voor een oplossing waar ik achter sta. Een goede reparatie draagt bij aan veiligheid en een langere levensduur van je auto.</p>
+        </article>
+        <article class="value">
+          <svg class="value__check" aria-hidden="true"><use href="#check"/></svg>
+          <h3>Betrouwbaar</h3>
+          <p>Voor mij betekent betrouwbaar dat je weet waar je aan toe bent. Ik geef eerlijk advies, leg uit wat er speelt en bespreek samen wat de beste oplossing is. Niet alles hoeft altijd direct vervangen te worden: ik kijk naar wat verstandig is voor de auto en voor de klant.</p>
+        </article>
+        <article class="value">
+          <svg class="value__check" aria-hidden="true"><use href="#check"/></svg>
+          <h3>Eerlijke prijs</h3>
+          <p>Omdat ik mobiel werk en geen grote werkplaatskosten heb, kan ik mijn werkzaamheden voordeliger aanbieden dan een traditionele garage. Dit betekent niet dat ik minder kwaliteit lever. Ik vind het juist belangrijk om goed werk te leveren tegen een eerlijke prijs.</p>
+          <p>Voor werkzaamheden die beter passen in een werkplaats, werk ik samen met mijn vaste partners, zodat klanten altijd goed geholpen worden.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <svg class="swoosh" viewBox="0 0 1440 380" aria-hidden="true">
+      <path d="M170 158.8 A2600 2600 0 0 1 430 116.2" stroke-width="40"/>
+      <path d="M510 108.5 A2600 2600 0 0 1 1250 154.6" stroke-width="26"/>
+      <path d="M110 244.6 A2530 2530 0 0 1 1080 195.7" stroke-width="38"/>
+      <path d="M1160 208.6 A2530 2530 0 0 1 1330 244.6" stroke-width="38"/>
+      <path d="M60 330.2 A2460 2460 0 0 1 1390 333.0" stroke-width="46"/>
+    </svg>
+    <div class="wrap contact__inner">
+      <div>
+        <h2 id="contact-title">Lampje aan of tijd voor onderhoud?</h2>
+        <p>Neem contact met mij op. Ik kom naar je toe, thuis of bij je bedrijf.</p>
+      </div>
+      <div class="contact__actions">
+        <a class="btn btn--black" href="tel:+31617229144">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          <span class="btn__stack"><small>Bellen</small><span>06-17229144</span></span>
+        </a>
+        <a class="btn btn--black" href="https://wa.me/31617229144" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.3 19z"/></svg>
+          <span class="btn__stack"><small>WhatsApp</small><span>Stuur een bericht</span></span>
+        </a>
+        <a class="btn btn--black" href="mailto:info@jrautocheck.nl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+          <span class="btn__stack"><small>E-mail</small><span>info@jrautocheck.nl</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="Images/logo-header.png" alt="JR Autocheck" width="105" height="64">
+        <img src="Images/slogan.png" alt="Samen sterk in autowerk!" width="260" height="21">
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="#diensten">Diensten</a></li>
+          <li><a href="#over-mij">Over mij</a></li>
+          <li><a href="#kernwaarden">Kernwaarden</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer__bottom">© 2026 JR Autocheck, Jonathan Ravenhorst. Zelfstandig mobiele automonteur.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const tabs=[...document.querySelectorAll('.tab')];
+    function select(tab,focus){
+      tabs.forEach(t=>{
+        const on=t===tab;
+        t.setAttribute('aria-selected',on);
+        t.tabIndex=on?0:-1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+      });
+      if(focus) tab.focus();
+    }
+    tabs.forEach((t,i)=>{
+      t.addEventListener('click',()=>select(t));
+      t.addEventListener('keydown',e=>{
+        if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+          e.preventDefault();
+          const n=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+          select(tabs[n],true);
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
