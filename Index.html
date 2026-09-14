@@ -5,11 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JR Autocheck | Mobiele automonteur</title>
 <meta name="description" content="JR Autocheck: zelfstandig mobiele automonteur voor particulieren en bedrijven. Diagnose, onderhoud, reparatie en APK. Samen sterk in autowerk!">
-<link rel="icon" type="image/png" href="Images/logo-hero.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="Images/opt/favicon-96.png">
+<link rel="preload" href="Fonts/roboto-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" href="Images/opt/logo-hero-628.webp" imagesrcset="Images/opt/logo-hero-471.webp 471w, Images/opt/logo-hero-628.webp 628w, Images/opt/logo-hero-942.webp 942w" imagesizes="(max-width:960px) 300px, 500px" fetchpriority="high">
 <style>
+  /* ---------- Fonts (self-hosted, zelfde Roboto als voorheen) ---------- */
+  @font-face{font-family:Roboto;font-style:normal;font-weight:400 900;font-stretch:100%;font-display:swap;src:url(Fonts/roboto-latin-var.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:Roboto;font-style:normal;font-weight:400 900;font-stretch:100%;font-display:swap;src:url(Fonts/roboto-latin-ext-var.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
   :root{
     --black:#000000;
     --blue-deep:#0056a4;
@@ -224,7 +227,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="nav__brand" href="#top" aria-label="JR Autocheck, naar boven"><img src="Images/logo-header.png" alt="JR Autocheck" width="75" height="46"></a>
+    <a class="nav__brand" href="#top" aria-label="JR Autocheck, naar boven"><img src="Images/opt/logo-header-210.webp" alt="JR Autocheck" width="75" height="46" decoding="async"></a>
     <ul class="nav__links">
       <li><a href="#diensten">Diensten</a></li>
       <li><a href="#over-mij">Over mij</a></li>
@@ -241,10 +244,10 @@
     <div class="wrap hero__grid">
       <div>
         <h1>De garage komt naar je toe.</h1>
-        <img class="hero__slogan" src="Images/slogan.png" alt="Samen sterk in autowerk!" width="420" height="34">
+        <img class="hero__slogan" src="Images/opt/slogan-860.webp" srcset="Images/opt/slogan-516.webp 516w, Images/opt/slogan-860.webp 860w" sizes="(max-width:960px) 90vw, 420px" alt="Samen sterk in autowerk!" width="860" height="70" decoding="async">
         <p class="hero__lead">Ik ben Jonathan, zelfstandig mobiele automonteur. Voor diagnose, onderhoud en reparatie kom ik naar je toe, zodat je geen tijd kwijt bent aan een bezoek aan de garage.</p>
         <div class="hero__actions">
-          <a class="btn btn--bright" href="#contact">Neem contact op</a>
+          <a class="btn btn--bright" href="#contact">Plan een afspraak</a>
           <a class="btn btn--ghost" href="#diensten">Bekijk mijn diensten</a>
         </div>
         <ul class="hero__creds">
@@ -253,7 +256,7 @@
           <li><svg aria-hidden="true"><use href="#check"/></svg>Particulieren en bedrijven</li>
         </ul>
       </div>
-      <img class="hero__logo" src="Images/logo-hero.png" alt="Logo JR Autocheck" width="500" height="353">
+      <img class="hero__logo" src="Images/opt/logo-hero-628.webp" srcset="Images/opt/logo-hero-471.webp 471w, Images/opt/logo-hero-628.webp 628w, Images/opt/logo-hero-942.webp 942w" sizes="(max-width:960px) 300px, 500px" alt="Logo JR Autocheck" width="471" height="333" fetchpriority="high" decoding="async">
     </div>
 
     <svg class="swoosh" viewBox="0 0 1440 380" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
@@ -287,8 +290,8 @@
           </svg>
           <h3>Diagnose</h3>
           <p class="feature__q">Brandt er een waarschuwingslampje?</p>
-          <p>Neem direct contact met mij op. Ik voer een nauwkeurige diagnose uit en verhelp eventuele storingen, zodat je weer veilig de weg op kunt.</p>
-          <a class="btn btn--bright" href="#contact">Neem direct contact op</a>
+          <p>Plan een afspraak. Ik voer een nauwkeurige diagnose uit en verhelp eventuele storingen, zodat je weer veilig de weg op kunt.</p>
+          <a class="btn btn--bright" href="#contact">Plan een afspraak</a>
         </article>
 
         <div class="service-list">
@@ -370,7 +373,7 @@
       </div>
 
       <figure class="portrait">
-          <img src="Images/IMG_5086.jpg" alt="Jonathan Ravenhorst, eigenaar van JR Autocheck" width="880" height="1100">
+          <img src="Images/opt/portrait-920.webp" srcset="Images/opt/portrait-460.webp 460w, Images/opt/portrait-920.webp 920w" sizes="460px" alt="Jonathan Ravenhorst, eigenaar van JR Autocheck" width="880" height="1100" loading="lazy" decoding="async">
           <figcaption><strong>Jonathan Ravenhorst</strong><span>Eigenaar JR Autocheck</span></figcaption>
       </figure>
       <aside class="journey" aria-labelledby="journey-title">
@@ -425,7 +428,7 @@
     <div class="wrap contact__inner">
       <div>
         <h2 id="contact-title">Lampje aan of tijd voor onderhoud?</h2>
-        <p>Neem contact met mij op. Ik kom naar je toe, thuis of bij je bedrijf.</p>
+        <p>Plan een afspraak. Ik kom naar je toe, thuis of bij je bedrijf.</p>
       </div>
       <div class="contact__actions">
         <a class="btn btn--black" href="tel:+31617229144">
@@ -449,8 +452,8 @@
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__brand">
-        <img src="Images/logo-header.png" alt="JR Autocheck" width="105" height="64">
-        <img src="Images/slogan.png" alt="Samen sterk in autowerk!" width="260" height="21">
+        <img src="Images/opt/logo-header-210.webp" alt="JR Autocheck" width="105" height="64" loading="lazy" decoding="async">
+        <img src="Images/opt/slogan-516.webp" alt="Samen sterk in autowerk!" width="516" height="42" loading="lazy" decoding="async">
       </div>
       <nav aria-label="Footer">
         <ul>
